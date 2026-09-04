@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support · NetRadar</title>
+<meta name="description" content="Help with NetRadar for macOS: Local Network permission, missing devices, hardware addresses, and purchases.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="site">
+  <span class="mark"><svg width="30" height="30" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NetRadar"><rect width="100" height="100" rx="24" fill="#101B2E"/><g fill="none" stroke="#8FA3BC" stroke-opacity="0.5"><circle cx="50" cy="50" r="12" stroke-width="3"/><circle cx="50" cy="50" r="24" stroke-width="3"/><circle cx="50" cy="50" r="34" stroke-width="3.5"/></g><path d="M50 50 L50 16 A34 34 0 0 1 79 34 Z" fill="#3FB8D6" fill-opacity="0.34"/><path d="M50 50 L79 34" stroke="#8AE3F2" stroke-width="4.5" stroke-linecap="round"/><circle cx="50" cy="50" r="4.5" fill="#FFFFFF"/></svg></span>
+  <a class="name" href="index.html">NetRadar</a>
+  <nav>
+    <a href="support.html" aria-current="page">Support</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+</header>
+
+<h1>Support</h1>
+<p class="lede">Most questions about NetRadar are answered below. If yours is not, email me and I will reply.</p>
+<p class="updated">Email <a href="mailto:support@vensofts.com">support@vensofts.com</a> · replies usually within two working days</p>
+
+<div class="card accent">
+  <p><strong>When writing in, it helps to include:</strong> your macOS version, the NetRadar version from <em>NetRadar ▸ Settings ▸ About</em>, whether you are on Wi-Fi or Ethernet, and what you expected to see instead.</p>
+</div>
+
+<h2>NetRadar finds nothing at all</h2>
+<p>Almost always this is the Local Network permission. macOS asks for it once, and if it was dismissed or denied the app cannot reach anything — there is no way for an app to detect this or ask again, which is why NetRadar has to guess and tell you.</p>
+<ol class="steps">
+  <li>Open <strong>System Settings ▸ Privacy &amp; Security ▸ Local Network</strong></li>
+  <li>Turn <strong>NetRadar</strong> on</li>
+  <li>Quit NetRadar completely and open it again — the permission is only picked up at launch</li>
+  <li>Press <strong>⌘R</strong> to scan</li>
+</ol>
+<p>If NetRadar is not listed there at all, it has not asked yet. Run a scan once, allow the prompt when it appears, then scan again.</p>
+
+<h2>Some devices are missing</h2>
+<p>A device can be present and still not answer. Three common reasons:</p>
+<ul>
+  <li><strong>Your router is dropping the scan.</strong> Inexpensive routers discard traffic when a scan runs at full speed, which makes devices look offline. Switch to <strong>Settings ▸ Scanning ▸ Gentle</strong>, which sends far fewer packets at once, and scan again.</li>
+  <li><strong>Guest or isolated networks.</strong> Many routers deliberately hide devices from each other on a guest network. Nothing can find them from another device; that is the feature working as intended.</li>
+  <li><strong>Sleeping devices.</strong> Phones and laptops stop answering when asleep. They usually reappear on the next scan.</li>
+</ul>
+
+<h2>No hardware address or manufacturer is shown</h2>
+<p>NetRadar reads hardware addresses from your Mac's own neighbour table, which only holds devices reachable on the same network segment. On a routed or isolated network — some office setups, guest networks, and most virtual machines — those addresses simply are not available, and no app can show them.</p>
+<p>The device is still found and still identified; NetRadar leans on its Bonjour name, the services it advertises and its open ports instead. Rows without a hardware address are complete, not broken.</p>
+<p>Separately, iPhones, iPads and Macs randomise their hardware address for privacy. A randomised address has no registered manufacturer, so NetRadar shows none rather than inventing one.</p>
+
+<h2>A device shows an address instead of a name</h2>
+<p>Not every device announces a name. When none is available, NetRadar falls back to the manufacturer and the last part of the address, and finally to the address itself. With NetRadar Pro you can name any device yourself, and that name is remembered on every future scan of that network.</p>
+
+<h2>Wi-Fi channels and per-device bandwidth</h2>
+<p>NetRadar does not offer these, and will not. Both need packet capture, which macOS does not permit to apps distributed through the App Store. Rather than ship something half-working, they are left out. What is available instead is your router's own throughput figures, read over UPnP or SNMP, under the network details.</p>
+
+<h2>Purchases</h2>
+<h3>Restoring on another Mac</h3>
+<p>NetRadar Pro is one payment covering every Mac signed in to the same Apple Account. On a new Mac, open <strong>Settings ▸ About ▸ Restore Purchase</strong>.</p>
+<h3>The unlock button says "Loading…"</h3>
+<p>NetRadar is waiting on the App Store. Check your internet connection and try again in a moment. If you have already paid, your unlock is remembered locally and Pro features keep working even while the App Store is unreachable.</p>
+<h3>Refunds</h3>
+<p>Refunds are handled by Apple, not by us. Request one at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+
+<h2>Reporting a bug</h2>
+<p>Crash reports are genuinely useful, and they are not sent automatically — NetRadar has no crash reporter. If the app quits unexpectedly, macOS keeps a report you can attach:</p>
+<ol class="steps">
+  <li>Open <strong>Console</strong> from Applications ▸ Utilities</li>
+  <li>Choose <strong>Crash Reports</strong> in the sidebar</li>
+  <li>Find the most recent entry beginning <code>NetRadar</code></li>
+  <li>Right-click it, choose Reveal in Finder, and attach the file to your email</li>
+</ol>
+
+<h2>Requirements</h2>
+<dl class="facts">
+  <div><dt>Operating system</dt><dd>macOS 14 Sonoma or later</dd></div>
+  <div><dt>Hardware</dt><dd>Any Mac with Apple silicon or Intel</dd></div>
+  <div><dt>Connection</dt><dd>Wi-Fi or Ethernet. NetRadar scans the network you are on</dd></div>
+  <div><dt>Account</dt><dd>None. NetRadar has no sign-in</dd></div>
+</dl>
+
+<footer class="site">
+  <span>NetRadar for macOS</span>
+  <a href="index.html">Home</a>
+  <a href="support.html">Support</a>
+  <a href="privacy.html">Privacy</a>
+</footer>
+
+</div>
+</body>
+</html>
